@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML: Estructura y Diseño</title>
+    <link rel="stylesheet" href="disenoweb.css">
+</head>
+<body>
+    <h1>HTML: Estructura y Diseño</h1>
+    <div class="content">
+        <h2>¿Qué es HTML?</h2>
+        <p>HTML significa <strong>HyperText Markup Language</strong> (Lenguaje de Marcado de Hipertexto). Es el lenguaje de marcado utilizado para estructurar contenido en la web. Fue creado por <strong>Tim Berners-Lee</strong> en 1991 y es la base de cualquier página web.</p>
+ 
+        <h2>Diferencias entre HTML5 y HTML4</h2>
+        <p>HTML5 es la última versión de HTML y ofrece varias mejoras y características nuevas en comparación con HTML4, como:</p>
+        <ul>
+            <li><strong>Nuevos elementos semánticos:</strong> <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;nav&gt;</code>, entre otros.</li>
+            <li><strong>Elementos multimedia:</strong> <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code> y <code>&lt;source&gt;</code>.</li>
+            <li><strong>Elementos gráficos:</strong> <code>&lt;svg&gt;</code> y <code>&lt;canvas&gt;</code>.</li>
+            <li><strong>Nuevos elementos de formularios:</strong> <code>&lt;input type="date"&gt;</code>, <code>&lt;input type="time"&gt;</code>, <code>&lt;datalist&gt;</code>, <code>&lt;output&gt;</code>.</li>
+        </ul>
+ 
+        <h2>Estructura Básica de una Página HTML</h2>
+        <p>Una página HTML básica incluye los siguientes bloques:</p>
+        <ol>
+            <li><code>&lt;!DOCTYPE html&gt;</code>: Declara el tipo de documento como HTML.</li>
+            <li><code>&lt;html&gt;</code>: Contenedor raíz que encierra todo el contenido HTML.</li>
+            <li><code>&lt;head&gt;</code>: Contiene los metadatos, como el título de la página y los enlaces a las hojas de estilo.</li>
+            <li><code>&lt;body&gt;</code>: Contiene todo el contenido visible en la página.</li>
+        </ol>
+ 
+        <h2>Ejemplo Básico de HTML</h2>
+        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi Página Web&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bienvenido a mi página web&lt;/h1&gt;
+    &lt;p&gt;¡Hola, mundo!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+ 
+        <h2>Tablas en HTML</h2>
+        <p>Las tablas HTML organizan la información en filas y columnas. A continuación se muestra un ejemplo:</p>
+        <table>
+            <tr>
+                <th>Estudiante</th>
+                <th>Grado</th>
+                <th>País</th>
+            </tr>
+            <tr>
+                <td>Diego Romero</td>
+                <td>Informática</td>
+                <td>Alemania</td>
+            </tr>
+            <tr>
+                <td>Marta Cifuentes</td>
+                <td>Negocios y Tecnología</td>
+                <td>España</td>
+            </tr>
+        </table>
+ 
+        <h2>Imágenes en HTML</h2>
+        <p>Las imágenes se insertan con la etiqueta <code>&lt;img&gt;</code>. Es importante especificar el atributo <code>src</code> para indicar la fuente de la imagen:</p>
+        <img src="imagenes_web/imagen_arbol.jpg" alt="Ejemplo de imagen">
+ 
+        <h2>Formularios en HTML</h2>
+        <p>Los formularios permiten a los usuarios enviar información. Un formulario básico se ve así:</p>
+        <form action="/submit" method="POST">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre"><br><br>
+            <label for="email">Correo electrónico:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+            <button type="submit">Enviar</button>
+        </form>
+ 
+        <h2>Listas en HTML</h2>
+        <p>HTML permite dos tipos de listas: ordenadas y desordenadas.</p>
+ 
+        <h3>Lista Desordenada</h3>
+        <ul>
+            <li>Café</li>
+            <li>Té</li>
+            <li>Leche</li>
+        </ul>
+ 
+        <h3>Lista Ordenada</h3>
+        <ol>
+            <li>Café</li>
+            <li>Té</li>
+            <li>Leche</li>
+        </ol>
+ 
+        <a href="fundamentos.html" class="back-btn">Volver</a>
+    </div>
+</body>
+</html>

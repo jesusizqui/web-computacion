@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversiones Numéricas</title>
+    <link rel="stylesheet" href="disenoweb.css">
+</head>
+<body>
+    <h1>Conversiones Numéricas</h1>
+    <div class="content">
+       
+        <div class="conversion-box">
+            <h2>De Decimal a Binario</h2>
+            <p>Para convertir un número decimal a binario, divide el número entre 2, anota el residuo, y luego lee los residuos de abajo hacia arriba.</p>
+            <p><strong>Ejemplo:</strong></p>
+            <p>Ejemplo 1: Decimal 10 → Binario 1010</p>
+            <p>Ejemplo 2: Decimal 15 → Binario 1111</p>
+ 
+            <div class="converter">
+                <input type="number" id="decimal-to-binary" placeholder="Introduce número decimal">
+                <button onclick="convertToBinary()">Convertir a Binario</button>
+                <div class="result" id="binary-result"></div>
+            </div>
+        </div>
+ 
+        <div class="conversion-box">
+            <h2>De Decimal a Octal</h2>
+            <p>Para convertir de decimal a octal, divide el número decimal entre 8 y anota los restos. Luego, lee los restos de abajo hacia arriba.</p>
+            <p><strong>Ejemplo:</strong></p>
+            <p>Ejemplo 1: Decimal 10 → Octal 12</p>
+            <p>Ejemplo 2: Decimal 15 → Octal 17</p>
+ 
+            <div class="converter">
+                <input type="number" id="decimal-to-octal" placeholder="Introduce número decimal">
+                <button onclick="convertToOctal()">Convertir a Octal</button>
+                <div class="result" id="octal-result"></div>
+            </div>
+        </div>
+ 
+        <div class="conversion-box">
+            <h2>De Decimal a Complemento a 1</h2>
+            <p>Para obtener el complemento a 1 de un número decimal, convierte primero el número a binario y luego invierte todos los bits.</p>
+            <p><strong>Ejemplo:</strong></p>
+            <p>Ejemplo 1: Decimal 5 → Binario 0101 → Complemento a 1 1010</p>
+            <p>Ejemplo 2: Decimal 3 → Binario 0011 → Complemento a 1 1100</p>
+ 
+            <div class="converter">
+                <input type="number" id="decimal-to-complement-1" placeholder="Introduce número decimal">
+                <button onclick="convertToComplement1()">Convertir a Complemento a 1</button>
+                <div class="result" id="complement-1-result"></div>
+            </div>
+        </div>
+ 
+        <div class="conversion-box">
+            <h2>De Decimal a Complemento a 2</h2>
+            <p>Para obtener el complemento a 2 de un número decimal, primero conviértelo a binario, invierte los bits y luego suma 1 al resultado.</p>
+            <p><strong>Ejemplo:</strong></p>
+            <p>Ejemplo 1: Decimal 5 → Binario 0101 → Complemento a 1 1010 → Complemento a 2 1011</p>
+            <p>Ejemplo 2: Decimal 3 → Binario 0011 → Complemento a 1 1100 → Complemento a 2 1101</p>
+ 
+            <div class="converter">
+                <input type="number" id="decimal-to-complement-2" placeholder="Introduce número decimal">
+                <button onclick="convertToComplement2()">Convertir a Complemento a 2</button>
+                <div class="result" id="complement-2-result"></div>
+            </div>
+        </div>
+ 
+        <div class="conversion-box">
+            <h2>De Decimal a Coma Flotante</h2>
+            <p>La conversión de decimal a coma flotante implica convertir la parte entera y la parte fraccionaria en binario, y luego representar el número en formato de norma científica.</p>
+            <p><strong>Ejemplo:</strong></p>
+            <p>Ejemplo 1: Decimal 5.75 → Coma flotante 1.011 × 2³</p>
+            <p>Ejemplo 2: Decimal 2.625 → Coma flotante 1.010 × 2¹</p>
+ 
+            <div class="converter">
+                <input type="number" step="any" id="decimal-to-floating-point" placeholder="Introduce número decimal">
+                <button onclick="convertToFloatingPoint()">Convertir a Coma Flotante</button>
+                <div class="result" id="floating-point-result"></div>
+            </div>
+        </div>
+ 
+        <div class="conversion-box">
+            <h2>De Decimal a RGB</h2>
+            <p>La conversión de un número decimal a RGB implica dividir el número en sus componentes de color rojo, verde y azul, representados en formato hexadecimal.</p>
+            <p><strong>Ejemplo:</strong></p>
+            <p>Ejemplo 1: Decimal 255 → RGB 255, 255, 255</p>
+            <p>Ejemplo 2: Decimal 16777215 → RGB 255, 255, 255</p>
+ 
+            <div class="converter">
+                <input type="number" id="decimal-to-rgb" placeholder="Introduce número decimal">
+                <button onclick="convertToRGB()">Convertir a RGB</button>
+                <div class="result" id="rgb-result"></div>
+            </div>
+        </div>
+ 
+        <div class="conversion-box">
+            <h2>De Decimal a Hexadecimal</h2>
+            <p>Para convertir un número decimal a hexadecimal, divide el número entre 16 y anota los restos. Luego, lee los restos de abajo hacia arriba.</p>
+            <p><strong>Ejemplo:</strong></p>
+            <p>Ejemplo 1: Decimal 10 → Hexadecimal A</p>
+            <p>Ejemplo 2: Decimal 255 → Hexadecimal FF</p>
+ 
+            <div class="converter">
+                <input type="number" id="decimal-to-hexadecimal" placeholder="Introduce número decimal">
+                <button onclick="convertToHexadecimal()">Convertir a Hexadecimal</button>
+                <div class="result" id="hexadecimal-result"></div>
+            </div>
+        </div>
+ 
+        <a href="fundamentos.html" class="back-btn">Volver</a>
+    </div>
+ 
+    <script>
+        // Funciones de conversión
+        function convertToBinary() {
+            let decimal = parseInt(document.getElementById("decimal-to-binary").value);
+            if (isNaN(decimal)) {
+                document.getElementById("binary-result").innerText = "Por favor, ingresa un número válido.";
+                return;
+            }
+            document.getElementById("binary-result").innerText = decimal.toString(2);
+        }
+ 
+        function convertToOctal() {
+            let decimal = parseInt(document.getElementById("decimal-to-octal").value);
+            if (isNaN(decimal)) {
+                document.getElementById("octal-result").innerText = "Por favor, ingresa un número válido.";
+                return;
+            }
+            document.getElementById("octal-result").innerText = decimal.toString(8);
+        }
+ 
+        function convertToComplement1() {
+            let decimal = parseInt(document.getElementById("decimal-to-complement-1").value);
+            if (isNaN(decimal)) {
+                document.getElementById("complement-1-result").innerText = "Por favor, ingresa un número válido.";
+                return;
+            }
+            let binary = (decimal >>> 0).toString(2); // Convierte a binario
+            let complement1 = binary.split('').map(bit => bit === '1' ? '0' : '1').join('');
+            document.getElementById("complement-1-result").innerText = complement1;
+        }
+ 
+        function convertToComplement2() {
+            let decimal = parseInt(document.getElementById("decimal-to-complement-2").value);
+            if (isNaN(decimal)) {
+                document.getElementById("complement-2-result").innerText = "Por favor, ingresa un número válido.";
+                return;
+            }
+            let binary = (decimal >>> 0).toString(2); // Convierte a binario
+            let complement1 = binary.split('').map(bit => bit === '1' ? '0' : '1').join('');
+            let complement2 = (parseInt(complement1, 2) + 1).toString(2);
+            document.getElementById("complement-2-result").innerText = complement2;
+        }
+ 
+        function convertToFloatingPoint() {
+            let decimal = parseFloat(document.getElementById("decimal-to-floating-point").value);
+            if (isNaN(decimal)) {
+                document.getElementById("floating-point-result").innerText = "Por favor, ingresa un número válido.";
+                return;
+            }
+            let floatResult = decimal.toExponential(3);
+            document.getElementById("floating-point-result").innerText = floatResult;
+        }
+ 
+        function convertToRGB() {
+            let decimal = parseInt(document.getElementById("decimal-to-rgb").value);
+            if (isNaN(decimal)) {
+                document.getElementById("rgb-result").innerText = "Por favor, ingresa un número válido.";
+                return;
+            }
+            let r = (decimal >> 16) & 255;
+            let g = (decimal >> 8) & 255;
+            let b = decimal & 255;
+            document.getElementById("rgb-result").innerText = `RGB(${r}, ${g}, ${b})`;
+        }
+ 
+        function convertToHexadecimal() {
+            let decimal = parseInt(document.getElementById("decimal-to-hexadecimal").value);
+            if (isNaN(decimal)) {
+                document.getElementById("hexadecimal-result").innerText = "Por favor, ingresa un número válido.";
+                return;
+            }
+            document.getElementById("hexadecimal-result").innerText = decimal.toString(16).toUpperCase();
+        }
+    </script>
+</body>
+</html>
